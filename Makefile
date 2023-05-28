@@ -5,7 +5,8 @@
 .PHONY: install
 install:
 	@echo "Installing dependencies"
-	@pip install -r requirements.txt
+	@python -m venv .venv
+	@. .venv/bin/activate; pip install -r requirements.txt
 
 # pre-commitを実行します
 .PHONY: pre-commit
