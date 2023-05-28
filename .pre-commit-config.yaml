@@ -1,0 +1,24 @@
+# pre-commitの設定ファイル
+repos:
+  # ruffのチェック
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.0.264"
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+
+  # ruffで未対応の部分をblackで補完する
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        args: [src/]
+
+  # 全般的なチェック
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace     # 行末の空白を削除する
+      - id: end-of-file-fixer       # ファイルの最後に改行を追加する
+      - id: check-yaml              # yamlの構文チェック
+      - id: check-added-large-files # 大きなファイルがコミットされないようにする
