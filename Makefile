@@ -1,6 +1,12 @@
 # .PHONYを使用して、make用のコマンドを定義することができます
 # @を先頭に付けたコマンドは、コマンドを非表示で実行できます
 
+# 依存パッケージをインストールします
+.PHONY: install
+install:
+	@echo "Installing dependencies"
+	@pip install -r requirements.txt
+
 # pre-commitを実行します
 .PHONY: pre-commit
 pre-commit:
